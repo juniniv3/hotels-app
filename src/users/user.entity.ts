@@ -9,10 +9,13 @@ import {
 export class User {
   @PrimaryGeneratedColumn()
   id: number;
+
   @Column({ unique: true })
   usename: string;
+
   @Column()
   password: string;
+
   @CreateDateColumn()
   createAt: Date;
 }
