@@ -19,6 +19,9 @@ export class Hotel {
   @Column()
   starts: number;
 
+  @Column()
+  state: number;
+
   @ManyToOne(() => Location, (location) => location.hotels)
   location: Location;
 
