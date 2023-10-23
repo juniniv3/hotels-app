@@ -16,6 +16,9 @@ export class Hotel {
   @Column()
   name: string;
 
+  @Column({ nullable: true })
+  description: string;
+
   @Column()
   starts: number;
 
