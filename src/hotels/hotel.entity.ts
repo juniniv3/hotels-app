@@ -1,5 +1,5 @@
-import { Location } from 'src/locations/location.entity';
-import { Room } from 'src/rooms/room.entity';
+import { Location } from '../locations/location.entity';
+import { Room } from '../rooms/room.entity';
 import {
   Column,
   Entity,

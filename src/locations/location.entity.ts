@@ -1,4 +1,4 @@
-import { Hotel } from 'src/hotels/hotel.entity';
+import { Hotel } from '../hotels/hotel.entity';
 import {
   Column,
   CreateDateColumn,

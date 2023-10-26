@@ -11,10 +11,31 @@ export class User {
   id: number;
 
   @Column({ unique: true })
-  username: string;
+  email: string;
 
   @Column()
   password: string;
+
+  @Column()
+  name: string;
+
+  @Column()
+  last_name: string;
+
+  @Column()
+  gender: string;
+
+  @Column()
+  birth_date: Date;
+
+  @Column()
+  document_type: string;
+
+  @Column()
+  phone: number;
+
+  @Column()
+  direction: string;
 
   @Column()
   role: number;
