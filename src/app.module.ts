@@ -8,22 +8,26 @@ import { AuthModule } from './auth/auth.module';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { RoomsModule } from './rooms/rooms.module';
 import { LocationsModule } from './locations/locations.module';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
   imports: [
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
     UsersModule,
     HotelsModule,
     ReservationsModule,
     AuthModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
-      host: '127.0.0.1',
-      port: 5432,
-      username: 'development',
-      password: 'development',
-      database: 'hotels',
+      host: process.env.DATABASE_URL,
+      port: parseInt(process.env.DATABASE_PORT),
+      username: process.env.DATABASE_USER,
+      password: process.env.DATABASE_PASSWORD,
+      database: process.env.DATABASE,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // Only for development. Set to false in production.
+      synchronize: false, // Only for development. Set to false in production.
     }),
     RoomsModule,
     LocationsModule,
