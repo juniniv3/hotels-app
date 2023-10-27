@@ -23,3 +23,13 @@ steps:
 - script: |
     npm run test
   displayName: 'unit tests'
+
+- task: CopyFiles@2
+  inputs:
+    SourceFolder: 'dist/'
+    Contents: '**'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- publish: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Publish artifact'
+  artifact: dropBack
