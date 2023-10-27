@@ -23,3 +23,15 @@ steps:
 - script: |
     npm run test
   displayName: 'unit tests'
+
+- task: ArchiveFiles@2
+  inputs:
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
+
+- publish: '$(Build.ArtifactStagingDirectory)'
+  displayName: 'Publish artifact'
+  artifact: dropBack
