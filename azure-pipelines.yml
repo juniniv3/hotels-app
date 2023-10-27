@@ -33,7 +33,9 @@ steps:
 
 - task: CopyFiles@2
   inputs:
-    Contents: 'package.json'
+    Contents: |
+      package.json
+      node_modules/
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'copy package.json'
 
