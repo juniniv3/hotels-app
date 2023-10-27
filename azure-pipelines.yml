@@ -24,18 +24,13 @@ steps:
     npm run test
   displayName: 'unit tests'
 
-- task: CopyFiles@2
+- task: ArchiveFiles@2
   inputs:
-    SourceFolder: 'dist/'
-    Contents: '**'
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'copy dist folder'
-
-- task: CopyFiles@2
-  inputs:
-    Contents: package.json
-    TargetFolder: '$(Build.ArtifactStagingDirectory)'
-  displayName: 'copy package.json'
+    rootFolderOrFile: '$(Build.BinariesDirectory)'
+    includeRootFolder: true
+    archiveType: 'zip'
+    archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+    replaceExistingArchive: true
 
 - publish: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Publish artifact'
