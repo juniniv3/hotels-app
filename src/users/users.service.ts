@@ -8,4 +8,12 @@ export class UsersService {
   constructor(
     @InjectRepository(User) private userRepository: Repository<User>,
   ) {}
+
+  findOne(email: string) {
+    return this.userRepository.findOne({
+      where: {
+        email,
+      },
+    });
+  }
 }

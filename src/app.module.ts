@@ -9,16 +9,14 @@ import { TypeOrmModule } from '@nestjs/typeorm';
 import { RoomsModule } from './rooms/rooms.module';
 import { LocationsModule } from './locations/locations.module';
 import { ConfigModule } from '@nestjs/config';
+import { JwtModule } from '@nestjs/jwt';
+import { jwtConstants } from './auth/constans';
 
 @Module({
   imports: [
     ConfigModule.forRoot({
       isGlobal: true,
     }),
-    UsersModule,
-    HotelsModule,
-    ReservationsModule,
-    AuthModule,
     TypeOrmModule.forRoot({
       type: 'postgres',
       host: process.env.DATABASE_URL,
@@ -27,8 +25,17 @@ import { ConfigModule } from '@nestjs/config';
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: false, // Only for development. Set to false in production.
+      synchronize: true, // Only for development. Set to false in production.
     }),
+    JwtModule.register({
+      global: true,
+      secret: jwtConstants.secret,
+      signOptions: { expiresIn: '60s' },
+    }),
+    UsersModule,
+    HotelsModule,
+    ReservationsModule,
+    AuthModule,
     RoomsModule,
     LocationsModule,
   ],
