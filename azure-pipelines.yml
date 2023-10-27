@@ -37,13 +37,6 @@ steps:
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
   displayName: 'copy package.json'
 
-- task: CopyFiles@2
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/node_modules'
-    Contents: '**'  # Copy all files and subdirectories within node_modules
-    TargetFolder: '$(Build.ArtifactStagingDirectory)/node_modules'
-  displayName: 'Copy node_modules'
-
 - publish: '$(Build.ArtifactStagingDirectory)'
   displayName: 'Publish artifact'
   artifact: dropBack
