@@ -11,6 +11,7 @@ import { LocationsModule } from './locations/locations.module';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtConstants } from './auth/constans';
+import { ServicesModule } from './services/services.module';
 
 @Module({
   imports: [
@@ -38,6 +39,7 @@ import { jwtConstants } from './auth/constans';
     AuthModule,
     RoomsModule,
     LocationsModule,
+    ServicesModule,
   ],
   controllers: [AppController],
   providers: [AppService],
