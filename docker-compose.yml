@@ -1,0 +1,15 @@
+services:
+  db:
+    image: postgres:13
+    container_name: hotels-app-db
+    environment:
+      POSTGRES_USER: development
+      POSTGRES_PASSWORD: development
+      POSTGRES_DB: hotels
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
