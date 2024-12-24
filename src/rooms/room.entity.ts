@@ -1,9 +1,11 @@
 import { Hotel } from '../hotels/hotel.entity';
+import { Reservation } from '../reservations/reservation.entity';
 import {
   Column,
   CreateDateColumn,
   Entity,
   ManyToOne,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -25,8 +27,11 @@ export class Room {
   description: string;
 
   @CreateDateColumn()
-  createAt: Date;
+  create_at: Date;
 
   @ManyToOne(() => Hotel, (hotel) => hotel.rooms)
   hotel: Hotel;
+
+  @OneToMany(() => Reservation, (reservation) => reservation.room)
+  reservations: Reservation[];
 }

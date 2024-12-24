@@ -1,32 +1,59 @@
 INSERT INTO public.service
-(id, "name", emoji, "createAt")
-VALUES(nextval('service_id_seq'::regclass), 'Aire acondicionado', '🌬️', now());
+("name", emoji, create_at)
+VALUES('Aire acondicionado', '🌬️', now());
 
 INSERT INTO public.service
-(id, "name", emoji, "createAt")
-VALUES(nextval('service_id_seq'::regclass), 'Restaurante', '🍴', now());
+("name", emoji, create_at)
+VALUES('Restaurante', '🍴', now());
 
 INSERT INTO public.service
-(id, "name", emoji, "createAt")
-VALUES(nextval('service_id_seq'::regclass), 'Parqueadero', '🚗', now());
+("name", emoji, create_at)
+VALUES('Parqueadero', '🚗', now());
 
 INSERT INTO public.service
-(id, "name", emoji, "createAt")
-VALUES(nextval('service_id_seq'::regclass), 'Bar', '🍹', now());
+("name", emoji, create_at)
+VALUES('Bar', '🍹', now());
 
 INSERT INTO public.service
-(id, "name", emoji, "createAt")
-VALUES(nextval('service_id_seq'::regclass), 'Cafetería', '☕', now());
+("name", emoji, create_at)
+VALUES('Cafetería', '☕', now());
 
 INSERT INTO public.service
-(id, "name", emoji, "createAt")
-VALUES(nextval('service_id_seq'::regclass), 'Wifi', '🛜', now());
+("name", emoji, create_at)
+VALUES('Wifi', '🛜', now());
 
 INSERT INTO public.service
-(id, "name", emoji, "createAt")
-VALUES(nextval('service_id_seq'::regclass), 'Piscina', '🏊‍♂️', now());
+("name", emoji, create_at)
+VALUES('Piscina', '🏊‍♂️', now());
 
 INSERT INTO public.service
-(id, "name", emoji, "createAt")
-VALUES(nextval('service_id_seq'::regclass), 'Traslado al aeropuerto', '🚌', now());
+("name", emoji, create_at)
+VALUES('Traslado al aeropuerto', '🚌', now());
 
+INSERT INTO public.service
+("name", emoji, create_at)
+VALUES('Gimnasio', '🏋️‍♂️', now());
+
+INSERT INTO public.service
+("name", emoji, create_at)
+VALUES('Spa', '💆‍♀️', now());
+
+INSERT INTO public.service
+("name", emoji, create_at)
+VALUES('Servicio a la habitación', '🛎️', now());
+
+INSERT INTO public.service
+("name", emoji, create_at)
+VALUES('Lavandería', '🧺', now());
+
+INSERT INTO public.service
+("name", emoji, create_at)
+VALUES('Sala de conferencias', '🏢', now());
+
+INSERT INTO public.service
+("name", emoji, create_at)
+VALUES('Servicio de niñera', '👶', now());
+
+INSERT INTO public.service
+("name", emoji, create_at)
+VALUES('Desayuno incluido', '🍳', now());

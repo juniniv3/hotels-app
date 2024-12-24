@@ -26,7 +26,7 @@ import { ServicesModule } from './services/services.module';
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      synchronize: true, // Only for development. Set to false in production.
+      synchronize: false, // Only for development. Set to false in production.
     }),
     JwtModule.register({
       global: true,

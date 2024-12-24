@@ -22,10 +22,10 @@ export class Location {
   country: string;
 
   @Column()
-  postalCodes: string;
+  postal_codes: string;
 
   @CreateDateColumn()
-  createAt: Date;
+  create_at: Date;
 
   @OneToMany(() => Hotel, (hotel) => hotel.location)
   hotels: Hotel[];
