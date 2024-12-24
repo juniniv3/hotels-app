@@ -11,5 +11,25 @@ services:
     volumes:
       - postgres_data:/var/lib/postgresql/data
 
+  app:
+    image: node:18
+    container_name: hotels-app
+    working_dir: /usr/src/app
+    environment:
+      DATABASE: hotels
+      DATABASE_USER: development
+      DATABASE_PASSWORD: development
+      DATABASE_URL: "db"
+      DATABASE_PORT: 5432
+      PORT: 3000
+    volumes:
+      - .:/usr/src/app
+      - /usr/src/app/node_modules
+    command: sh -c "npm install && npm run start:dev"
+    ports:
+      - "3000:3000"
+    depends_on:
+      - db
+
 volumes:
   postgres_data:
