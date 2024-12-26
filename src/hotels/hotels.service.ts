@@ -28,6 +28,10 @@ export class HotelsService {
     return this.hotelsRepository.save(hotel);
   }
 
+  async deleteHotel(hotelId: number) {
+    return this.hotelsRepository.delete(hotelId);
+  }
+
   getHotels() {
     return this.hotelsRepository.find();
   }
