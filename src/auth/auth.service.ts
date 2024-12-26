@@ -24,4 +24,8 @@ export class AuthService {
       },
     };
   }
+
+  async signUp(user) {
+    return this.usersService.create(user);
+  }
 }
