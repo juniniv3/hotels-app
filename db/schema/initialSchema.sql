@@ -77,3 +77,22 @@ CREATE TABLE hotel_service (
     REFERENCES service(id),
   PRIMARY KEY (hotel_id, service_id)
 );
+
+create TABLE role (
+  id SERIAL PRIMARY KEY,
+  name VARCHAR(255) NOT NULL UNIQUE,
+  description VARCHAR(255),
+  create_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE hotel_role (
+  hotel_id INT,
+  role_id INT,
+  CONSTRAINT fk_hotel
+    FOREIGN KEY(hotel_id) 
+    REFERENCES hotel(id),
+  CONSTRAINT fk_role
+    FOREIGN KEY(role_id) 
+    REFERENCES role(id),
+  PRIMARY KEY (hotel_id, role_id)
+);

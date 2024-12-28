@@ -1,6 +1,7 @@
 import { Service } from '../services/services.entity';
 import { Location } from '../locations/location.entity';
 import { Room } from '../rooms/room.entity';
+import { Role } from 'src/role/role.entity';
 import {
   Column,
   Entity,
@@ -37,4 +38,8 @@ export class Hotel {
   @ManyToMany(() => Service)
   @JoinTable()
   services: Service[];
+
+  @ManyToMany(() => Role)
+  @JoinTable()
+  roles: Role[];
 }
