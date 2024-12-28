@@ -10,8 +10,9 @@ import { RoomsModule } from './rooms/rooms.module';
 import { LocationsModule } from './locations/locations.module';
 import { ConfigModule } from '@nestjs/config';
 import { JwtModule } from '@nestjs/jwt';
-import { jwtConstants } from './auth/constans';
+import { jwtConstants } from './auth/constants';
 import { ServicesModule } from './services/services.module';
+import { AuthGuard } from './auth/auth.guard';
 
 @Module({
   imports: [
@@ -42,6 +43,9 @@ import { ServicesModule } from './services/services.module';
     ServicesModule,
   ],
   controllers: [AppController],
-  providers: [AppService],
+  providers: [AppService, {
+    provide: 'APP_GUARD',
+    useClass: AuthGuard,
+  }],
 })
 export class AppModule {}
